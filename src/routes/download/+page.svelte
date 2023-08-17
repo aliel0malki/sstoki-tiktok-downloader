@@ -3,17 +3,11 @@
   <meta name="description" content="Here you can download your video." />
 </svelte:head>
 <script lang="ts">
-  import { onMount } from 'svelte';
+  // import { onMount } from 'svelte';
 
   export let form;
-  let valid = false;
 
-  onMount(() => {
-    setTimeout(() => {
-      valid = true;
-    }, 1000);
-    console.log(form.res.result.video)
-  });
+  console.log(form.res.result.video)
 
   const downloadVideo = async () => {
     const randSelect = Math.floor(Math.random() * 1);
@@ -52,8 +46,8 @@
   };
 </script>
 <div class="container">
-{#if valid}
-{#if form}
+
+{#if form.res}
 <div style="align-items: center; text-align: center">
   <h4>Video Information</h4>
   <img width="150px" src={form.res.result.cover} alt="tiktok video cover" />
@@ -70,13 +64,8 @@
   </div>
 </div>
 {/if}
+{#if !form}
 <h3>No Data here - Go to /</h3>
 <a href="/">Home</a>
-{/if}
-
-{#if !valid}
-<div style="width:100%; text-align:center">
-<h3 style="padding:1em;text-align: center;display:inline-block;text-decoration: none !important;margin:0 auto;">Loading...</h3>
-</div>
 {/if}
 </div>

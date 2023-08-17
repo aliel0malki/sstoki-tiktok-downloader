@@ -7,7 +7,7 @@
 
   export let form;
 
-  console.log(form.res.result.video)
+  // console.log(form.res.result.video)
 
   const downloadVideo = async () => {
     const randSelect = Math.floor(Math.random() * 1);

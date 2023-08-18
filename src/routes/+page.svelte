@@ -12,7 +12,7 @@
 			<span>♾️ ~</span> Remaining Credit
 		</h1>
 	</div>
-	<form method="POST" action="download/?">
+	<form method="POST" action="/download/?">
 		<input name="url" type="url" placeholder="Past tiktok video link" required />
 		<button type="submit">Generate</button>
 	</form>

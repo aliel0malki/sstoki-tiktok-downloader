@@ -11,8 +11,7 @@ export const actions = {
     const tiktok_url = data.url;
     try {
       const vid_data = await TiktokDL(tiktok_url);
-      const video = vid_data;
-      return { success: true, data: video };
+      return { success: true, data: vid_data };
     } catch (e) {
       console.error(e);
       return fail(403, {success:false ,ERORR: e});

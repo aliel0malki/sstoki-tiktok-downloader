@@ -45,7 +45,7 @@
 </script>
 <div class="container">
 
-{#if form?.success}
+{#if form.data}
 <div style="align-items: center; text-align: center">
   <h4>Video Information</h4>
   <img width="150px" src={form?.data?.result?.cover} alt="tiktok video cover" />
@@ -62,7 +62,7 @@
   </div>
 </div>
 {/if}
-{#if !form.success}
+{#if !form.data}
 <h3>No Data here - Go to /</h3>
 <a href="/">Home</a>
 {/if}

@@ -2,11 +2,11 @@
   <title>Downloading Page</title>
   <meta name="description" content="Here you can download your video." />
 </svelte:head>
+
 <script lang="ts">
+ /** @type {import('./$types').ActionData} */
  export let form;
-
   console.log(form?.data)
-
   const downloadVideo = async () => {
     const randSelect = Math.floor(Math.random() * 1);
     const randName = Math.floor(Math.random() * 100000);
@@ -45,7 +45,7 @@
 </script>
 <div class="container">
 
-{#if form.data.result}
+{#if form?.success}
 <div style="align-items: center; text-align: center">
   <h4>Video Information</h4>
   <img width="150px" src={form?.data?.result?.cover} alt="tiktok video cover" />
@@ -62,7 +62,7 @@
   </div>
 </div>
 {/if}
-{#if !form.data.result}
+{#if !form.success}
 <h3>No Data here - Go to /</h3>
 <a href="/">Home</a>
 {/if}

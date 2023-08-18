@@ -12,10 +12,10 @@ export const actions = {
     try {
       const vid_data = await TiktokDL(tiktok_url);
       const video = vid_data;
-      return { data: video };
+      return { success: true, data: video };
     } catch (e) {
       console.error(e);
-      return fail(503, `ERORR: ${e}`);
+      return fail(403, {success:false ,ERORR: e});
     }
   },
 };

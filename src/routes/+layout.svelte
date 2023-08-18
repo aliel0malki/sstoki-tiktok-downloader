@@ -5,7 +5,6 @@
 
 
 <Analytics />
-<slot />
 
 <nav style="align-items: center; padding: 10px">
 	<a href="/">sstiktik</a><span style="text-transform: uppercase; font-size: 13px"

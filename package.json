@@ -38,6 +38,8 @@
 	"dependencies": {
 		"@picocss/pico": "^1.5.10",
 		"@tobyg74/tiktok-api-dl": "^1.0.4",
+		"pocketbase": "^0.16.0",
+		"svelte-local-storage-store": "^0.6.0",
 		"zod": "^3.22.1"
 	}
 }

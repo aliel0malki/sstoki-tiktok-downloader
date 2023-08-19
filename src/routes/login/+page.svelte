@@ -7,7 +7,7 @@
 			<h1 style="margin-top: 30px; margin-bottom: 10px">Login Account</h1>
 			<p >Login with your account</p>
 		</div>
-		<form method="POST" action="?/login" style="margin-top: 40px">
+		<form method="POST" action="?" style="margin-top: 40px">
 			<label >
 				<span>Email</span>
 				<input name="email" type="email" placeholder="example@email.com" />

@@ -13,8 +13,7 @@
 		}
 	};
 	
-	
-</script>
+  </script>
 
 <svelte:head>
 	<title>ssTikTok - TikTok Downloader</title>
@@ -22,6 +21,8 @@
 		name="description"
 		content="Downloading TikTok video and music with HD quality and no watermark!"
 	/>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3003009940487682"
+     crossorigin="anonymous"></script>
 </svelte:head>
 <div class="container">
 	<div style="margin-top:100px; text-align: center">
@@ -37,4 +38,6 @@
 		
 				<button on:click={handleCredits} type="submit">Generate</button>
 </form>
+
+
 </div>

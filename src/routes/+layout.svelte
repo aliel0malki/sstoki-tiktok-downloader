@@ -3,8 +3,11 @@
   import Analytics from '$lib/analytics.svelte'
  	import '../app.css';
 export let data
-</script>
 
+  import { onMount } from "svelte";
+
+  
+</script>
 
 <Analytics />
 

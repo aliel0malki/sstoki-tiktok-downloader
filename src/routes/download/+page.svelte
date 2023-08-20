@@ -1,7 +1,9 @@
 <svelte:head>
   <title>Downloading Page</title>
   <meta name="description" content="Here you find your video for download." />
-</svelte:head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3003009940487682"
+     crossorigin="anonymous"></script>
+     </svelte:head>
 
 <script lang="ts">
  /** @type {import('./$types').ActionData} */

@@ -1,6 +1,8 @@
 <script lang="ts">
 	export let data
 </script>
+<div class="container">
+	
 <center>
 	
 <h1>Welcome {data.user.username}</h1>
@@ -10,3 +12,4 @@
 	
 </form>
 </center>
+</div>

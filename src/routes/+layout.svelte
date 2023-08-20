@@ -1,15 +1,22 @@
 <script lang="ts">
-	import '@picocss/pico/css/pico.min.css';
+	import '@picocss/pico';
   import Analytics from '$lib/analytics.svelte'
-export let data</script>
+ 	import '../app.css';
+export let data
+</script>
 
 
 <Analytics />
 
-<nav style="align-items: center; padding: 10px; background-color: #111">
-	<a href="/">ssTikTok</a><span style="text-transform: uppercase; font-size: 13px"
-		>v78.0</span
+<nav style="align-items: center; padding: 10px">
+
+	<ul>
+		<li>
+				<a style="font-size: 2rem" href="/">ssTikTok</a>
+			<span style="text-transform: uppercase; font-size: 13px"
+		>v88.0</span
 	>
-	{#if data.user}<a href="/profile" >PROFILE</a>{:else}<a href="/login">LOGIN</a>{/if}
-</nav>
+	</ul>
+			{#if data.user}<a href="/profile" >PROFILE</a>{:else}<a role="button" href="/login">LOGIN</a>{/if}
+	</nav>
 <slot />

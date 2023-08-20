@@ -2,12 +2,11 @@
   <title>Downloading Page</title>
   <meta name="description" content="Here you find your video for download." />
 </svelte:head>
-
 <script lang="ts">
  /** @type {import('./$types').ActionData} */
  export let form;
  export let data;
-// console.log("FROM DOWNLOAD ",form)
+ console.log(form)
  import "$lib/css/download.css"
   console.log(form?.data)
   const downloadVideo = async () => {
@@ -24,7 +23,6 @@
       link.click();
 
       window.URL.revokeObjectURL(url);
-      
     } catch (error) {
       alert('Error downloading video:\n'+ error);
     }
@@ -49,7 +47,7 @@
 </script>
 
 <div class="container">
-{#if form?.success}
+{#if form.data}
 
 <div style="align-items: center; text-align: center;">
 
@@ -60,19 +58,19 @@
 		<div>
 			
 		<div class="overlay"></div>
-	<img class="img-download" src={form?.data?.result?.cover} alt="tiktok video cover" />
+	<img class="img-download" src="https://picsum.photos/200/300" alt="tiktok video cover" />
 		</div>
 <div class="info">
-	<h3 style="font-size: 16px; margin-bottom: 5px">Creator ~ {form?.data?.result?.author.username}</h3>
-	<span style="font-size: 12px; ">{form?.data?.result?.description}</span>
+	<h3 style="font-size: 16px; margin-bottom: 5px">@ion7x</h3>
+	<span style="font-size: 12px; ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida urna eu metus ulvinar rutrum nisi. Du.</span>
 <hr/>
 <div class="sub-info">
 	<div>
-<span><span style="font-size: 18px">{form?.data?.result?.statistics?.likeCount}</span> ~ Like</span>
+<span><span style="font-size: 18px">469998</span> ~ Like</span>
 <br/>
-<span><span style="font-size: 18px">{form?.data?.result?.statistics?.commentCount}</span> ~ Comment</span>
+<span><span style="font-size: 18px">3244</span> ~ Comment</span>
 	</div>
-	<a href={form?.data?.result?.video[0]}>Watch Video<a>
+	<a>Watch Video<a>
 </div>
 </div>
 	</div>
@@ -92,8 +90,5 @@
 
 
 </div>
-{:else}
-<h3>No Data here - Go to /</h3>
-<a href="/">Home</a>
-{/if}
+
 </div>

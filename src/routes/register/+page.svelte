@@ -21,7 +21,7 @@ import { enhance } from '$app/forms'
 			<label>
 				<span>Password Confirm</span>
 				<input name="passwordConfirm" type="password" placeholder="********" />
-			</label>		
+			</label>	
 					<p >have an account? <a href="/login">Login</a></p>
 			<button type="submit">Create</button>
 		</form>

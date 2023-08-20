@@ -1,5 +1,5 @@
-import { persisted } from "svelte-local-storage-store";
+import { persisted } from 'svelte-local-storage-store';
 
-export const credits = persisted("credits", {
-  remaining: 15,
+export const credits = persisted('credits', {
+	remaining: 15
 });

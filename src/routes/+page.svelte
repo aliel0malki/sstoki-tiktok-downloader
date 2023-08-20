@@ -8,11 +8,8 @@
 			cred = $credits;
 			console.log('credits updated!');
 		}
-		if ($credits.remaining === 'nothing') {
+		if ($credits.remaining === 0) {
 			console.log("0 left credits")
-		}
-		if ($credits.remaining == 0) {
-			credits.set({ remaining: 'nothing' }); // update value
 		}
 	};
 	
@@ -23,19 +20,21 @@
 	<title>ssTikTok - TikTok Downloader</title>
 	<meta
 		name="description"
-		content="Downloading TikTok video and music with HD quality In less than 10 seconds!"
+		content="Downloading TikTok video and music with HD quality and no watermark!"
 	/>
 </svelte:head>
 <div class="container">
-	<div style="margin-top:150px; text-align: center">
+	<div style="margin-top:100px; text-align: center">
 	<h1 style="font-size: 18px">
-			<span>{$credits.remaining} ~</span> Remaining Credit
+			<span>{$credits.remaining}</span> Remaining Credit
 		</h1>
 	</div>
-	<center>for download music you must be logged in</center>
 
 	<form method="POST" action="/download/?">
-		<input name="url" type="url" placeholder="Past tiktok video link" required />
-		<button on:click={handleCredits} type="submit">Generate</button>
-	</form>
+
+		
+<input style="background-color: #222" name="url" type="url" placeholder="Past tiktok video link" required />
+		
+				<button on:click={handleCredits} type="submit">Generate</button>
+</form>
 </div>

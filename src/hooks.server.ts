@@ -1,13 +1,10 @@
 import PocketBase from "pocketbase";
-import { env } from "$env/static/public";
+import { env } from "$env/dynamic/public";
 import { redirect } from "@sveltejs/kit";
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
   event.locals.db = new PocketBase(env.PUBLIC_API_KEY);
-	
-	localStorage.clear()
-	
 	
   // load the store data from the request cookie string
   event.locals.db.authStore.loadFromCookie(

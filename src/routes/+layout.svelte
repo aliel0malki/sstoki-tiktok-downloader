@@ -2,6 +2,11 @@
 	import '@picocss/pico';
   import Analytics from '$lib/analytics.svelte'
  	import '../app.css';
+ 	import { browser } from '$app/environment';
+
+ 	if(browser){
+ 		window.localStorage.clear()
+ 	}
 export let data
 
   import { onMount } from "svelte";

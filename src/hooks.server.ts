@@ -1,5 +1,4 @@
 import PocketBase from "pocketbase";
-import { env } from "$env/dynamic/public";
 import { env } from '$env/dynamic/public';
 import { redirect } from "@sveltejs/kit";
 

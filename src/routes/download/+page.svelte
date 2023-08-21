@@ -13,8 +13,8 @@
  import "$lib/css/download.css"
   console.log(form?.data)
   const downloadVideo = async () => {
-    const randSelect = Math.floor(Math.random() * 1);
-    const randName = Math.floor(Math.random() * 100000);
+  const randSelect = Math.floor(Math.random() * (2 - 0)) + 0;
+  const randName = Math.floor(Math.random() * 100000);
   try {
       const response = await fetch(form.data.result.video[randSelect]);
       const blob = await response.blob();

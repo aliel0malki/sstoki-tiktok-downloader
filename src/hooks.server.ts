@@ -1,5 +1,5 @@
 import PocketBase from "pocketbase";
-import { PUBLIC_API_KEY } from "$env/static/private";
+import { PUBLIC_API_KEY } from "$env/static/public";
 import { redirect } from "@sveltejs/kit";
 
 /** @type {import('@sveltejs/kit').Handle} */

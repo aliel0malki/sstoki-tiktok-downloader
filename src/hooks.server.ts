@@ -1,10 +1,10 @@
 import PocketBase from "pocketbase";
-import { PUBLIC_API_KEY } from "$env/static/public";
+import { env } from '$env/dynamic/public';
 import { redirect } from "@sveltejs/kit";
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
-  event.locals.db = new PocketBase(PUBLIC_API_KEY);
+  event.locals.db = new PocketBase(env.PUBLIC_API_KEY);
 	
 	localStorage.clear()
 	

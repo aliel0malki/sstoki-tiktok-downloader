@@ -1,9 +1,6 @@
 import PocketBase from "pocketbase";
-<<<<<<< HEAD
 import { env } from "$env/dynamic/public";
-=======
 import { env } from '$env/dynamic/public';
->>>>>>> 42251dc6a4d18a0aa32aa9947acc188d534b2b27
 import { redirect } from "@sveltejs/kit";
 
 /** @type {import('@sveltejs/kit').Handle} */

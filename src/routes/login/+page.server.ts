@@ -1,12 +1,8 @@
 import { fail, redirect } from '@sveltejs/kit';
-import { credits } from '$lib/storage';
-import { get } from 'svelte/store';
+
 /**
  * @type {import('./$types').RequestHandler}
  */
-
-let cred: any = get(credits);
-
 export const actions = {
 	default: async ({ request, locals }) => {
 		const formData = await request.formData();
@@ -17,9 +13,8 @@ export const actions = {
 				.collection('users')
 				.authWithPassword(data.email, data.password);
 			// locals.user = locals.db.authStore.model;
-			credits.set({ remaining: cred + 5 }); // update value
-		} catch (_) {
-			alert(_);
+			} catch (_) {
+			console.error(_);
 		}
 		throw redirect(303, '/');
 	}

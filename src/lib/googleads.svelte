@@ -1,6 +1,6 @@
 <script>
-    import { isAdLoaded } from "$lib/stores";
-    $isAdLoaded = true //sets the store to true implying Adblock is not enabled
+   // import { isAdLoaded } from "$lib/stores";
+   // $isAdLoaded = true //sets the store to true implying Adblock is not enabled
 </script>
 <div>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3003009940487682"

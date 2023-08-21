@@ -10,7 +10,7 @@ export const actions = {
 		// console.log("user data ======", data);
 		try {
 			const newUser = await locals.db.collection('users').create(data);
-			// await locals.db.collection('users').requestVerification(data.email);
+			await locals.db.collection('users').requestVerification(data.email);
 					} catch (e) {
 			console.error(e);
 		}

@@ -13,7 +13,7 @@ export const actions = {
 				.collection('users')
 				.authWithPassword(data.email, data.password);
 			// locals.user = locals.db.authStore.model;
-			} catch (_) {
+		} catch (_) {
 			console.error(_);
 		}
 		throw redirect(303, '/');

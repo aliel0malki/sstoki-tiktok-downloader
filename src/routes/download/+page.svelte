@@ -9,6 +9,8 @@
  /** @type {import('./$types').ActionData} */
  export let form;
  export let data;
+ let videoIsLoading: boolean=false;
+ let musicIsLoading: boolean=false;
 // console.log("FROM DOWNLOAD ",form)
  import "$lib/css/download.css"
   console.log(form?.data)
@@ -17,6 +19,7 @@
   const randName = Math.floor(Math.random() * 100000);
   try {
       const response = await fetch(form.data.result.video[randSelect]);
+      videoIsLoading =true
       const blob = await response.blob();
 
       const url = window.URL.createObjectURL(blob);
@@ -26,7 +29,7 @@
       link.click();
 
       window.URL.revokeObjectURL(url);
-      
+      videoIsLoading = false
     } catch (error) {
       alert('Error downloading video:\n'+ error);
     }
@@ -35,6 +38,7 @@
       const randName = Math.floor(Math.random() * 100000);
   try {
       const response = await fetch(form.data.result.music[0]);
+      musicIsLoading=true
       const blob = await response.blob();
 
       const url = window.URL.createObjectURL(blob);
@@ -44,7 +48,9 @@
       link.click();
 
       window.URL.revokeObjectURL(url);
-    } catch (error) {
+    musicIsLoading=false
+  	
+  } catch (error) {
       alert('Error downloading music:\n' +error);
     }
   };
@@ -74,7 +80,8 @@
 <br/>
 <span><span style="font-size: 18px">{form?.data?.result?.statistics?.commentCount}</span> ~ Comment</span>
 	</div>
-	<a href={form?.data?.result?.video[0]}>Watch Video<a>
+	<br/>
+	<a class="bg-primary" href={form?.data?.result?.video[0]}>Watch Video<a>
 </div>
 </div>
 	</div>
@@ -82,13 +89,24 @@
 
 </div>
 <div style="margin-top:3rem">
-	
-  <button on:click={downloadVideo} style="margin-top:10px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9m6 4v3h4l-7 7l-7-7h4V9h6z"/></svg> Download Video <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9m6 4v3h4l-7 7l-7-7h4V9h6z"/></svg></button> <!-- Add the download button -->
+	{#if !videoIsLoading}
+  <button class="w-full flex gap-2 text-white justify-center p-4 uppercase bg-primary" on:click={downloadVideo} style="margin-top:10px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9m6 4v3h4l-7 7l-7-7h4V9h6z"/></svg> Download Video <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9m6 4v3h4l-7 7l-7-7h4V9h6z"/></svg></button> <!-- Add the download button -->
+{:else}
+<button style="margin-top:10px" class="w-full flex gap-2 text-white justify-center p-4 uppercase bg-primary" disabled>
+	Loading...
+</button>
+{/if}
 
   {#if data.user}
-  <button on:click={downloadMusic}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9m6 4v3h4l-7 7l-7-7h4V9h6z"/></svg> Download Music <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9m6 4v3h4l-7 7l-7-7h4V9h6z"/></svg></button> <!-- Add the download button -->
-  {:else}
-  <a href="/login">Login to can download music</a>
+  	{#if !musicIsLoading}
+	  <button style="margin-top:10px" class="w-full flex gap-2 text-white justify-center p-4 uppercase bg-primary" on:click={downloadMusic}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9m6 4v3h4l-7 7l-7-7h4V9h6z"/></svg> Download Music <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5H9m6 4v3h4l-7 7l-7-7h4V9h6z"/></svg></button> <!-- Add the download button -->
+ {:else}
+<button style="margin-top:10px" class="w-full flex gap-2 text-white justify-center p-4 uppercase bg-primary" disabled>
+	Loading...
+</button>
+{/if}
+{:else}
+  <a class="text-primary" style="margin-top:30px" href="/login">Login to can download music</a>
   {/if}
 </div>
 

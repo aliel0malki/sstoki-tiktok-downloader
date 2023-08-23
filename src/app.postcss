@@ -1,3 +1,8 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Pink Light scheme (Default) */
 /* Can be forced with data-theme="light" */
 [data-theme='light'],
@@ -30,9 +35,11 @@
 
 /* Pink (Common styles) */
 :root {
-	background-color: rgb(20, 20, 20);
+	background-color: #111;
 	--form-element-active-border-color: var(--primary);
 	--form-element-focus-color: var(--primary-focus);
 	--switch-color: var(--primary-inverse);
 	--switch-checked-background-color: var(--primary);
 }
+@tailwind components;
+@tailwind utilities;
